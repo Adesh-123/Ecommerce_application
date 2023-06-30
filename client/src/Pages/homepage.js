@@ -33,7 +33,7 @@ const Homepage = () => {
   const getallproducts = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/product/productlist/${1}`
+        `http://localhost:3000/product/productlist/${1}`
       );
       if (data?.success) {
         setProducts(data.products);
