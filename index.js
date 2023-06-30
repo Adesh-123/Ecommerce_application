@@ -25,10 +25,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, './client/build')))
 
 // server start page
-app.get("/",(req,res)=>{
-    res.send("<h1> backend is running fine<\h1>");
-})
-
 app.use("/authroute",authroute);
 app.use("/category",categoryroute);
 app.use("/product",productroute);
