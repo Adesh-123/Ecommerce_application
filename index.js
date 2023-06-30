@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import morgan from "morgan";
 import DBconnection  from "./config/database.js";
 import authroute from "./routes/authroute.js"
 import categoryroute from "./routes/categoryroute.js"
@@ -16,11 +17,12 @@ const __dirname=path.dirname(__filename);
 const app=express();
 
 app.use(cors()) 
+app.use(express.json());
+app.use(morgan("dev"));
 // database connection function
 DBconnection();
 
 // middleware
-app.use(express.json());
 // app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, './client/build')))
 
