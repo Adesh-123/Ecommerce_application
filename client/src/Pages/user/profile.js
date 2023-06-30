@@ -29,7 +29,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put(`http://localhost:8000/authroute/update-profile/${id}`, {
+      const { data } = await axios.put(`/authroute/update-profile/${id}`, {
         name,
         email,
         password,

@@ -11,7 +11,7 @@ const Category = () => {
   
   const getallcategory=async()=>{
     try{
-      const {data}=await axios.get('http://localhost:8000/category/get-all-category');
+      const {data}=await axios.get('/category/get-all-category');
       if(data?.success){
        setCategories(data?.category);
       }else{

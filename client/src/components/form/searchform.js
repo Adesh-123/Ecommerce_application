@@ -11,7 +11,7 @@ const Searchform = () => {
       e.preventDefault();
       try {
         const { data } = await axios.get(
-          `http://localhost:8000/product/search/${values.keyword}`
+          `/product/search/${values.keyword}`
         );
         setValues({ ...values, results: data });
         console.log(values);

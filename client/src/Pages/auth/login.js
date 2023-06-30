@@ -18,7 +18,7 @@ const Login = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try{
-       const res =await axios.post(`http://localhost:8000/authroute/login`,
+       const res =await axios.post(`/authroute/login`,
         {email,password}
        )
        

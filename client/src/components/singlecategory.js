@@ -28,7 +28,7 @@ const Singlecategory = ({id,name}) => {
     const getallproduct=async()=>{
         try{
             setLoading(true);
-            const {data}= await axios.get(`http://localhost:8000/product/category-product/${id}`);
+            const {data}= await axios.get(`/product/category-product/${id}`);
             setLoading(false); 
             setProducts(data?.products);
         }catch(error){
@@ -55,7 +55,7 @@ const Singlecategory = ({id,name}) => {
                 <div className="mycard" key={c._id}>
                     <img
                     onClick={()=> navigate(`/product/${c.slug}`)}
-                    src={`http://localhost:8000/product/getproduct-photo/${c._id}`}
+                    src={`/product/getproduct-photo/${c._id}`}
                     className="card-img-top"
                     style={{maxWidth:"200px",maxHeight:"200px",
                         minHeight: "200px",overflow:"hidden"}}

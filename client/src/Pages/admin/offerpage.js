@@ -27,7 +27,7 @@ const Offerpage = () => {
         try{
             const offerdata=new FormData();
             offerdata.append("photo",photo);
-          const {data}=await axios.post("http://localhost:8000/offer/create-offer",offerdata);
+          const {data}=await axios.post("/offer/create-offer",offerdata);
           if(data?.success){
              getalloffers();
              setPhoto();
@@ -39,7 +39,7 @@ const Offerpage = () => {
     }
     const handleDelete=async(Id)=>{
         try{
-          const {data}=await axios.delete(`http://localhost:8000/offer/delete-offer/${Id}`);
+          const {data}=await axios.delete(`/offer/delete-offer/${Id}`);
           
           if(data?.success){
             toast.success("successfully delete the offer");
@@ -83,7 +83,7 @@ const Offerpage = () => {
                 <>
                     <div className='card w-75 p-3 mt-2'>
                         <img
-                            src={`http://localhost:8000/offer/getofferphoto/${c._id}`}
+                            src={`/offer/getofferphoto/${c._id}`}
                             className="card-img-top"
                             alt="image"
                         />

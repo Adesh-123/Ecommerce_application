@@ -24,7 +24,7 @@ const Updateproduct = () => {
 
   const getsingleproduct=async()=>{
     try{
-        const {data} =await axios.get(`http://localhost:8000/product/getsingle-product/${params.slug}`);
+        const {data} =await axios.get(`product/getsingle-product/${params.slug}`);
         if(data?.success){
           setName(data.product.name);
           setDescription(data.product.description);
@@ -48,7 +48,7 @@ const Updateproduct = () => {
 
   const getallcategory=async()=>{
     try{
-      const {data}=await axios.get('http://localhost:8000/category/get-all-category');
+      const {data}=await axios.get('/category/get-all-category');
       if(data?.success){
        setCategories(data?.category);
         // toast.success("successfully get categories");
@@ -76,7 +76,7 @@ const Updateproduct = () => {
       productData.append("category",category);
 
 
-      const {data}= await axios.put(`http://localhost:8000/product/update-product/${id}`,productData);
+      const {data}= await axios.put(`/product/update-product/${id}`,productData);
       if(data?.success){
         toast.success("product updated successfully");
         navigate("/dashboard/admin/products");
@@ -91,7 +91,7 @@ const Updateproduct = () => {
  const handleDelete=async(e)=>{
     e.preventDefault();
     try{
-       const {data}=await axios.delete(`http://localhost:8000/product/delete-product/${id}`);
+       const {data}=await axios.delete(`/product/delete-product/${id}`);
        if(data?.success){
         toast.success("Product deleted successfully");
         navigate("/dashboard/admin/products");
@@ -139,7 +139,7 @@ const Updateproduct = () => {
                     ) : (
                     <div className="text-center">
                         <img
-                        src={`http://localhost:8000/product/getproduct-photo/${id}`}
+                        src={`/product/getproduct-photo/${id}`}
                         alt="product_photo"
                         height={"200px"}
                         className="img img-responsive"

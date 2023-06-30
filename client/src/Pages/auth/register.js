@@ -21,7 +21,7 @@ const Register = () => {
     e.preventDefault();
     console.log({name,email,password,phonenumber,address});
     try{
-       const res =await axios.post(`http://localhost:8000/authroute/register`,
+       const res =await axios.post(`/authroute/register`,
         {name,email,password,phonenumber,address}
        )
        

@@ -11,7 +11,7 @@ const Product = () => {
   const getallproducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/product/all-product"
+        "/product/all-product"
       );
       console.log(data);
       if (data?.success) {
@@ -45,7 +45,7 @@ const Product = () => {
                 >
                   <div className="card m-2" style={{ width: "18rem" }}>
                     <img
-                      src={`http://localhost:8000/product/getproduct-photo/${c._id}`}
+                      src={`/product/getproduct-photo/${c._id}`}
                       className="card-img-top"
                       alt={c.name}
                     />

@@ -14,7 +14,7 @@ const Productdetails = () => {
    const params=useParams();
    const getproductdetail=async()=>{
     try{
-        const {data}=await axios.get(`http://localhost:8000/product/getsingle-product/${params?.slug}`);
+        const {data}=await axios.get(`/product/getsingle-product/${params?.slug}`);
         setProduct(data?.product);
         getsimilarproduct(data?.product._id,data?.product.category._id);
     }catch(error){
@@ -24,7 +24,7 @@ const Productdetails = () => {
    const getsimilarproduct=async(pid,cid)=>{
     try{
       console.log({pid,cid});
-      const {data}=await axios.get(`http://localhost:8000/product/similarproduct/${pid}/${cid}`);
+      const {data}=await axios.get(`/product/similarproduct/${pid}/${cid}`);
       setSimilarproduct(data?.products);
       console.log(similarproduct);
     }catch(error){
@@ -40,7 +40,7 @@ const Productdetails = () => {
       {product && <div className="row container product-details">
         <div className="col-md-6 ">
           <img
-            src={`http://localhost:8000/product/getproduct-photo/${product._id}`}
+            src={`/product/getproduct-photo/${product._id}`}
             className="card-img-top"
             style={{maxWidth:"400px",maxHeight:"400px",
                             minHeight: "400px",overflow:"hidden", marginLeft:"50px"}}
@@ -72,7 +72,7 @@ const Productdetails = () => {
          {similarproduct?.map((c) => (
                 <div className="card m-2" style={{ width: "18rem" }} key={c.id}>
                 <img
-                   src={`http://localhost:8000/product/getproduct-photo/${c._id}`}
+                   src={`/product/getproduct-photo/${c._id}`}
                   className="card-img-top"
                   alt={c.name}
                 />

@@ -9,7 +9,7 @@ const Users = () => {
 
   const getalluser=async()=>{
     try{
-      const {data}=await axios.get("http://localhost:8000/authroute/getalluser");
+      const {data}=await axios.get("/authroute/getalluser");
       setUser(data?.users);
       console.log(user);
     }catch(error){

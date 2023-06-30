@@ -33,7 +33,7 @@ const Homepage = () => {
   const getallproducts = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/product/productlist/${1}`
+        `/product/productlist/${1}`
       );
       if (data?.success) {
         setProducts(data.products);
@@ -48,7 +48,7 @@ const Homepage = () => {
   const productlist=async()=>{
     try{
        setLoading(true);
-       const {data}=await axios.get(`http://localhost:8000/product/productlist/${page}`);
+       const {data}=await axios.get(`/product/productlist/${page}`);
        setLoading(false);
        setProducts([...products,...data?.products]);
     }catch(error){
@@ -59,7 +59,7 @@ const Homepage = () => {
   const similarproductlist=async()=>{
     try{
       setLoading(true);
-      const {data}=await axios.get(`http://localhost:8000/product/similarproductlist/${page}`,{
+      const {data}=await axios.get(`/product/similarproductlist/${page}`,{
         checked,radio
       })
        setLoading(false);
@@ -77,7 +77,7 @@ const Homepage = () => {
 
   const getallcategory=async()=>{
     try{
-      const {data}=await axios.get('http://localhost:8000/category/get-all-category');
+      const {data}=await axios.get('/category/get-all-category');
       if(data?.success){
        setCategories(data?.category);
       }else{
@@ -89,7 +89,7 @@ const Homepage = () => {
  }
  const totalength=async()=>{
   try{
-    const {data}=await axios.get("http://localhost:8000/product/product-count");
+    const {data}=await axios.get("/product/product-count");
     setTotal(data.totallength);
   }catch(error){
     toast.error("error in getting total len");
@@ -102,7 +102,7 @@ const Homepage = () => {
 
  const filterproduct=async()=>{
   try{
-    const {data}=await axios.post("http://localhost:8000/product/filterproduct",{checked,radio});
+    const {data}=await axios.post("/product/filterproduct",{checked,radio});
     setProducts(data.products);
   }catch(error){
     console.log(error);
@@ -136,7 +136,7 @@ const Homepage = () => {
 
  const getalloffer=async()=>{
     try{  
-      const {data}=await axios.get("http://localhost:8000/offer/getalloffers");
+      const {data}=await axios.get("/offer/getalloffers");
       setOffer(data?.offers);
       
     }catch(error){
@@ -155,7 +155,7 @@ const Homepage = () => {
    size=offer.length;
    if(offer.length===0) return ;
    const interval=setInterval(()=>{
-     setBanner(`http://localhost:8000/offer/getofferphoto/${offer[count]._id}`);
+     setBanner(`/offer/getofferphoto/${offer[count]._id}`);
      setOfferloading(false);
      setCount((count+1)%size);
     },4000);
@@ -221,7 +221,7 @@ const Homepage = () => {
             {products?.map((c) => (
                   <div className="card m-2" style={{ width: "18rem" }} key={c._id}>
                     <img
-                      src={`http://localhost:8000/product/getproduct-photo/${c._id}`}
+                      src={`/product/getproduct-photo/${c._id}`}
                       className="card-img-top"
                       alt={c.name}
                     />
