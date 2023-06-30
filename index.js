@@ -31,7 +31,7 @@ app.use("/product",productroute);
 app.use("/offer",offerroute);
 
 
-app.use('*', function(req,res){
+app.use("*", function(req,res){
     res.sendFile(path.join(__dirname,'./client/build/index.html'));
 })
 
