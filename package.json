@@ -4,8 +4,10 @@
   "description": "Ecommerce website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "server": "nodemon index.js",
+    "start": "node index.js",
+    "client": "npm start --prefix ./client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "adesh kumar singh",
   "license": "ISC",
@@ -13,6 +15,7 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "braintree": "^3.16.0",
+    "concurrently": "^8.2.0",
     "cors": "^2.8.5",
     "crypto-js": "^4.1.1",
     "deep-email-validator": "^0.1.21",
