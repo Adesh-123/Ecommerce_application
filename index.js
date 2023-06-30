@@ -19,7 +19,7 @@ DBconnection();
 // middleware
 app.use(express.json());
 // app.use(morgan("dev"));
-app.use(express.static(path.join(__dirname, '../client/build')))
+app.use(express.static(path.join(__dirname, './client/build')))
 
 // server start page
 app.get("/",(req,res)=>{
@@ -33,7 +33,7 @@ app.use("/offer",offerroute);
 
 
 app.use('*', function(req,res){
-    res.sendFile(path.join(__dirname,'../client/build/index.html'));
+    res.sendFile(path.join(__dirname,'./client/build/index.html'));
 })
 
 app.listen(process.env.PORT,()=>{
